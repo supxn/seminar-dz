@@ -1,0 +1,13 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main()
+{
+    int x; cin >> x;
+    if (x == 1) cout << "налево";
+    if (x == 2) cout << "вверх";
+    if (x == 3) cout << "направо";
+    if (x == 4) cout << "вниз";
+  
+    return 0;
+}

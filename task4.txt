@@ -1,0 +1,11 @@
+#include <iostream>
+
+using namespace std;
+int main()
+{
+    int x; cin >>x;
+    int s = x % 10 + x / 10 % 10;
+    int pr = (x % 10) * (x / 10 % 10);
+    for (int i = min(s, pr); i <= max(s, pr); i++) cout << i << endl;
+    return 0;
+}
