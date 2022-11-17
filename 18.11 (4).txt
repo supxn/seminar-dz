@@ -1,0 +1,15 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int f(int& a1, int b) {
+    a1 = a1+b;
+    return 0;
+}
+
+int main()
+{
+    int a,b; cin >> a>>b;
+    f(a,b);
+    cout << a;
+    return 0;
+}

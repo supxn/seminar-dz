@@ -1,0 +1,18 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+double G = 6.67e-11;
+double fg(double m1, double m2, double r) {
+    return G * (m1 * m2) / (r * r);
+
+}
+
+
+int main()
+{
+    double m1, m2, m3; cin >> m1 >> m2 >> m3;
+    double r12, r23, r13; cin >> r12 >> r23 >> r13;
+    double F1 = fg(m1, m2, r12), F2 = fg(m1, m3, r13), F3 = fg(m3, m2, r23);
+    cout << max(F1, max(F2, F3)) << " " << F1 + F2 + F3 - max(F1, max(F2, F3)) - min(F1, min(F2, F3));
+    return 0;
+}

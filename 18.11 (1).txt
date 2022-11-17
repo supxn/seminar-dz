@@ -1,0 +1,17 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+double st(double x) {
+    return sqrt((x * 4) / sqrt(3));
+}
+double gp(double x) {
+    return sqrt(2 * x * x);
+}
+
+int main()
+{
+    double s; cin >> s;
+    double n = st(s);
+    cout << 2 * n + gp(n);
+    return 0;
+}
