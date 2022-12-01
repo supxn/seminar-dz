@@ -1,0 +1,26 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+
+
+
+int main()
+{
+
+    double eps = 1e-9;
+    double s = 1, x = 1; int i = 2;
+    cin >> x;
+    s = 0;
+    double x1 = x*x, n1=2*3*4;
+    while (eps < abs(x)) {
+        x = i * (i - 1) * x1 / n1;
+        s += x;
+        x1 *= x * x;
+        n1 *= (2 * i - 1) * (2*i - 2);
+        i++;
+    }
+    cout << s << endl;
+    return 0;
+}

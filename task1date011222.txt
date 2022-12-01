@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+int main() {
+	double b1 = 1, b2 = 2, bn;
+	int n;
+	
+	cin >> n;
+	if (n == 1) cout << b1;
+	else if (n == 2) cout << b2;
+	else
+	for (int i = 3; i <= n; i++) {
+		bn = b2 / (b1 + 1);
+		b1 = b2; b2 = bn;
+	}
+	cout << bn;
+	return 0;
+}
