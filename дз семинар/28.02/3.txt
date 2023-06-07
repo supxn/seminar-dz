@@ -1,0 +1,29 @@
+#include <iostream>
+#include <cmath>
+#include <algorithm>
+#include <vector>
+#include <string>
+#include <vector>
+using namespace std;
+
+int f(int min, int max)
+{
+	if (min == 0) return max;
+	return f(max % min, min);
+}
+
+int main()
+{
+	int a, b, min, max;
+	cin >> a >> b;
+	if (a < b)
+	{
+		min = a; max = b;
+	}
+	else
+	{
+		max = a; min = b;
+	}
+	cout << f(min, max);
+	return 0;
+}

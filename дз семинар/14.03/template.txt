@@ -1,0 +1,30 @@
+#include <iostream>
+#include <cmath>
+#include <algorithm>
+#include <vector>
+#include <string>
+#include <vector>
+using namespace std;
+
+template <typename T> T* f(T* a, int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		cin >> a[i];
+	}
+	return a;
+}
+
+
+
+int main()
+{
+	int n; cin >> n;
+	int* a = new int[n];
+	int* point = f(a, n);
+	for (int i = 0; i < n; i++)
+	{
+		cout << point[i] << ' ';
+	}
+	delete[]point;
+}

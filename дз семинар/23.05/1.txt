@@ -1,0 +1,65 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <string>
+#include <stack>
+#include <list>
+#include <set>
+using namespace std;
+int main() {
+    list<int> nums;
+    int n, num; cin >> n;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> num;
+        nums.push_back(num);
+    }
+    auto min_iter = nums.begin();
+    for (auto iter = nums.begin(); iter != nums.end(); ++iter)
+    {
+        if (*iter < *min_iter) {
+            min_iter = iter;
+        }
+    }
+    nums.insert(min_iter, 0);
+    nums.insert(next(min_iter), 0);
+    for (auto x : nums)
+    {
+        cout << x << " ";
+    }
+    cout << endl;
+
+    vector<int>nums2;
+ cin >> n;
+    int  mneg = -2147483647;
+    bool has_negative = false;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> num;
+        nums2.push_back(num);
+    }
+    for (int i = 0; i < n; i++)
+    {
+        if (nums2[i] < 0) {
+            has_negative = true;
+            if (nums2[i] > mneg)
+            {
+                mneg = nums2[i];
+            }
+        }
+    }
+    if (n % 2 == 0 || !has_negative)
+    {
+        cout << "cant print answer";
+    }
+    else
+    {
+        nums2[n / 2] = mneg;
+    }
+    for (int i = 0; i < n; i++)
+    {
+        cout << nums2[i] << ' ';
+    }
+    cout << endl;
+    return 0;
+}
