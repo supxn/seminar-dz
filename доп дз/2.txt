@@ -1,0 +1,70 @@
+#include<iostream>
+#include<string>
+#include<vector>
+#include<algorithm>
+
+using namespace std;
+
+class Conferention {
+private:
+
+public:
+	int people;
+	Conferention() : people(0) {};
+	Conferention(int people) : people(people) {};
+
+	void showpep(int n) {
+		cout << "Количество людей на конференции " << n << " - " << people << endl;
+	}
+
+	//назначение количества людей на конференцию
+	void set(int n) {
+		this->people = n;
+	}
+
+	//сумма
+	void sum(int n, int c) {
+		cout << "Вы провели конференции, где участвовало " << people << "человек. Все вопросы удлось решить!" << endl;
+	}
+
+	//перегрузка суммой
+	Conferention operator +(Conferention n) {
+		return Conferention(people + n.people);
+	}
+};
+
+int main() {
+	setlocale(LC_ALL, "Russian");
+	cout << "Сколько человек учасвует в конференции?" << endl;
+	cout << endl;
+	Conferention pep[10], p = 0;
+	int s = 0;
+
+	for (int i = 1; i < 7; i++) {
+		pep[i].showpep(i);
+	}
+
+	int c;
+	cout << "Введите количество людей на каждой из конференций" << endl;
+	for (int i = 1; i < 7; i++) {
+		cin >> c;
+		pep[i].set(c);
+	}
+
+	cout << endl;
+	cout << "Вот что получилось " << endl;
+
+	for (int i = 1; i < 7; i++) {
+		pep[i].showpep(i);
+	}
+
+	int k, l;
+	cout << "Нужно провести две конференции именно сегодня" << endl;
+	cout << "Выберите номера конференция" << endl;
+	cin >> k >> l;
+	(pep[k] + pep[l]).sum(k, l);
+
+	return 0;
+}
+
+

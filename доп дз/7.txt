@@ -1,0 +1,47 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <map>
+#include <set>
+#include <fstream>
+using namespace std;
+ifstream fin("input.txt");
+char findMaxLetter() {
+    map<char, int> letterFreqs;
+    string line;
+    while (getline(fin, line)) { // считываем строки пока они есть (но лучше написать файловый ввод)
+        vector<string> words;
+        string word;
+        for (char c : line) {
+            if (isalpha(c)) { // если символ является буквой
+                word += tolower(c); // добавляем букву в текущее слово
+            }
+            else {
+                if (!word.empty()) { // если текущее слово не пустое
+                    words.push_back(word); // добавляем его в массив слов
+                    word.clear(); // очищаем текущее слово
+                }
+            }
+        }
+        if (!word.empty()) { // если в конце строки осталось непустое слово
+            words.push_back(word); // добавляем его в массив слов
+        }
+        for (const auto& word : words) { // перебираем слова из массива
+            letterFreqs[word[0]]++; // увеличиваем счетчик частоты первой буквы в слове
+        }
+    }
+    // выбираем букву с наибольшей частотой и возвращаем ее
+    auto maxLetterFreq = max_element(letterFreqs.begin(), letterFreqs.end(),
+        [](auto& a, auto& b) { return a.second < b.second; });
+    return maxLetterFreq->first;
+}
+
+int main() {
+    setlocale(LC_ALL, "Russian");
+    cout << "Введите строки : " <<endl;
+        char maxLetter = findMaxLetter();
+        cout << "Буква с наибольшим количеством слов на эту букву: " << maxLetter << endl;;
+    return 0;
+}
+//фух!!!!! Заработало!
