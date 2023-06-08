@@ -1,0 +1,31 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+
+
+void f(int n, int b, int e) {
+	if (b > 0) {
+		for (int i = 0; i < e; i++) cout << " ";
+		for (int i = b; i > 0; i--) cout << i;
+		cout << endl;
+		return f(n, b - 1, e + 1);
+	}
+	else {
+		for (int i = 0; i < n - 1; i++) cout << " ";
+		for (int i = 1; i <= n - e + 2; i++) cout << i;
+		cout << endl;
+		if (e > 2) {
+			return f(n, b, e - 1);
+		}
+	}
+}
+
+int main() {
+	int n;
+	cin >> n;
+	f(n, n, 0);
+
+	return 0;
+}
